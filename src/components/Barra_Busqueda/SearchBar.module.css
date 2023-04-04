@@ -1,0 +1,15 @@
+.divSearch {
+  background-color: #fa925b;
+}
+
+.boton {
+  border: none;
+  border-radius: 0px 15px 15px 0;
+  cursor: pointer;
+  width: 50px;
+}
+.searchImput {
+  border: 0px;
+  border-radius: 15px 0px 0px 15px;
+  width: 100px;
+}

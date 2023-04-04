@@ -1,0 +1,10 @@
+.contenedor {
+  list-style-type: none;
+  padding: 50px;
+  background-color: #ffcab0;
+
+  margin-bottom: 3em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
