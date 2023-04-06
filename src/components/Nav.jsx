@@ -4,9 +4,6 @@ import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 class Nav extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <nav>
@@ -17,7 +14,9 @@ class Nav extends React.Component {
         <Link to="/about">
           <button>About</button>
         </Link>
-
+        <Link to="/">
+          <button>LOGOUT</button>
+        </Link>
       </nav>
     );
   }
