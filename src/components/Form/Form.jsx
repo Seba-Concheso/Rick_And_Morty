@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import validate from "./validation";
-
+import Styles from "./Form.module.css";
 const Form = ({ login }) => {
   const [userData, setUserData] = useState({ email: "", password: "" });
 
@@ -19,43 +19,56 @@ const Form = ({ login }) => {
   };
 
   return (
-    <form onSubmit={handleOnSubmit}>
-      <h1>Formulario de ingreso</h1>
+    <div className={Styles.loginOverlay}>
+      <h2>Iniciar sesión</h2>
       <div>
-        <label htmlFor="email">Email</label>
-        <input
-          type="text"
-          name="email"
-          value={userData.email}
-          onChange={handleChange}
-        />
+        <form onSubmit={handleOnSubmit}>
+          <div>
+            <label htmlFor="email" className={Styles.label}>
+              Email:{" "}
+            </label>
+            <input
+              type="text"
+              name="email"
+              value={userData.email}
+              onChange={handleChange}
+              className={Styles.inputForm}
+            />
 
-        <hr />
-        {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
+            {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
+          </div>
 
-        <hr />
+          <div>
+            <label htmlFor="password" className={Styles.label}>
+              Password:{" "}
+            </label>
+            <input
+              className={Styles.inputForm}
+              type="password"
+              name="password"
+              id="password"
+              value={userData.password}
+              onChange={handleChange}
+            />
+            {errors.password && (
+              <p style={{ color: "red" }}>{errors.password}</p>
+            )}
+          </div>
 
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          value={userData.password}
-          onChange={handleChange}
-        />
-        {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
+          <button
+            disabled={
+              !userData.email ||
+              !userData.password ||
+              errors.email ||
+              errors.password
+            }
+            className={Styles.loginButton}
+          >
+            Login
+          </button>
+        </form>
       </div>
-      <button
-        disabled={
-          !userData.email ||
-          !userData.password ||
-          errors.email ||
-          errors.password
-        }
-      >
-        Submit
-      </button>
-    </form>
+    </div>
   );
 };
 

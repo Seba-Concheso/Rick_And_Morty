@@ -1,6 +1,7 @@
 .nombre {
   font-size: 15px;
   color: #067a0e;
+  text-align: center;
 }
 
 .boton {
@@ -15,10 +16,16 @@
 
 .divCard {
   background-color: #fdffcd;
-  width: fit-content;
+  min-width: 50px;
+
   border-radius: 15px;
   padding: 5px;
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   display: flex;
   flex-direction: column;
+  width: calc(
+    16% - 10px
+  ); /* 33.33% para que haya tres cajas por fila y 10px de separación */
+  margin-right: 40px; /* separación entre las cajas */
+  margin-bottom: 10px;
 }

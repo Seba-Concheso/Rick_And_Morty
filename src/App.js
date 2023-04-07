@@ -9,6 +9,7 @@ import About from "./components/About/About.jsx";
 import Detail from "./components/Detail/Detail.jsx";
 import Error from "./components/Error.jsx";
 import Form from "./components/Form/Form.jsx";
+
 //modelo de la api
 const URL_BASE = "https://be-a-rym.up.railway.app/api/character";
 const API_KEY = "6fcf90ad321a.85178fd9012a000d6570";
@@ -34,6 +35,7 @@ function App() {
   useEffect(() => {
     !access && navigate("/");
   }, [access, navigate]);
+
   const onClose = (id) => {
     setCharacters(characters.filter((char) => char.id !== id));
   };

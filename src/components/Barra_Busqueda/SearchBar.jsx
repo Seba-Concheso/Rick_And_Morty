@@ -14,7 +14,7 @@ export default function SearchBar({ onSearch }) {
         className={styles.searchImput}
         onChange={handleChange}
       />
-      ,
+
       <button className={styles.boton} onClick={() => onSearch(id)}>
         Search
       </button>

@@ -2,21 +2,26 @@ import React from "react";
 import SearchBar from "./Barra_Busqueda/SearchBar.jsx";
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Styles from "./Nav.module.css";
 
 class Nav extends React.Component {
   render() {
     return (
-      <nav>
-        <SearchBar onSearch={this.props.onSearch} />
-        <NavLink to="/home">
-          <button>Home</button>
-        </NavLink>
-        <Link to="/about">
-          <button>About</button>
-        </Link>
+      <nav className={Styles.conteiner}>
+        <div className={Styles.leftButton}>
+          <NavLink to="/home">
+            <button className={Styles.Button}>Home</button>
+          </NavLink>
+          <Link to="/about">
+            <button className={Styles.Button}>About</button>
+          </Link>
+        </div>
         <Link to="/">
-          <button>LOGOUT</button>
+          <button className={Styles.rightButton}>LOGOUT</button>
         </Link>
+        <div className={Styles.search}>
+          <SearchBar onSearch={this.props.onSearch} />
+        </div>
       </nav>
     );
   }

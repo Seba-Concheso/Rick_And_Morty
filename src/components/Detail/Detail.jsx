@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
-
+import Styles from "./Detail.module.css";
 const URL_BASE = "https://be-a-rym.up.railway.app/api/character";
 const API_KEY = "6fcf90ad321a.85178fd9012a000d6570";
 
@@ -20,7 +20,7 @@ const Detail = () => {
     return setCharacter({});
   }, [id]);
   return (
-    <div>
+    <div className={Styles.bg}>
       {character.name ? (
         <>
           <h1>{character.name}</h1>

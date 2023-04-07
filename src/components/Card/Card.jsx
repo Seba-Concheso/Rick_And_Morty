@@ -7,9 +7,9 @@ export default function Card({ id, name, species, gender, image, onClose }) {
       <button onClick={() => onClose(id)} className={styles.boton}>
         X
       </button>
-      <img src={image} alt="" width="150" height="200" />
+      <img src={image} alt="" />
       <Link to={`/detail/${id}`}>
-        <h2 className={styles.nombre}>name : {name}</h2>
+        <h2 className={styles.nombre}>{name}</h2>
       </Link>
       <h2 className={styles.nombre}>species : {species}</h2>
       <h2 className={styles.nombre}>gender : {gender}</h2>

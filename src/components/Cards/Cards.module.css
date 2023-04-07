@@ -1,10 +1,13 @@
 .contenedor {
   list-style-type: none;
   padding: 50px;
-  background-color: #ffcab0;
 
   margin-bottom: 3em;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+.container {
+  max-width: 960px;
+  margin: 0 auto;
 }
