@@ -5,9 +5,7 @@
   margin-bottom: 3em;
   display: flex;
   flex-wrap: wrap;
-  overflow: scroll;
-}
-.container {
-  max-width: 960px;
-  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }

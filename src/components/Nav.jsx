@@ -17,7 +17,10 @@ class Nav extends React.Component {
           </Link>
         </div>
         <Link to="/">
-          <button className={Styles.rightButton}>LOGOUT</button>
+          <button className={Styles.rightButton}>Logout</button>
+        </Link>
+        <Link to="/favorites">
+          <button className={Styles.Button}>Favorites</button>
         </Link>
         <div className={Styles.search}>
           <SearchBar onSearch={this.props.onSearch} />

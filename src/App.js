@@ -9,6 +9,7 @@ import About from "./components/About/About.jsx";
 import Detail from "./components/Detail/Detail.jsx";
 import Error from "./components/Error.jsx";
 import Form from "./components/Form/Form.jsx";
+import Favorites from "./components/Favorites/Favorites";
 
 //modelo de la api
 const URL_BASE = "https://be-a-rym.up.railway.app/api/character";
@@ -37,7 +38,8 @@ function App() {
   }, [access, navigate]);
 
   const onClose = (id) => {
-    setCharacters(characters.filter((char) => char.id !== id));
+    const charactersFiltered = characters.filter((char) => char.id !== id);
+    setCharacters(charactersFiltered);
   };
 
   function onSearch(id) {
@@ -61,7 +63,7 @@ function App() {
         />
 
         <Route path="/about" element={<About />} />
-
+        <Route path="/favorites" element={<Favorites />} />
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="*" element={<Error />} />
       </Routes>

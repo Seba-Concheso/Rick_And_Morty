@@ -13,9 +13,16 @@ export default function SearchBar({ onSearch }) {
         type="search"
         className={styles.searchImput}
         onChange={handleChange}
+        value={id}
       />
 
-      <button className={styles.boton} onClick={() => onSearch(id)}>
+      <button
+        className={styles.boton}
+        onClick={() => {
+          onSearch(id);
+          setId("");
+        }}
+      >
         Search
       </button>
     </div>
