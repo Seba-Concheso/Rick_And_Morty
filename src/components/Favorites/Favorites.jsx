@@ -2,19 +2,26 @@ import { useSelector, useDispatch } from "react-redux";
 import styles from "./Favorites.module.css";
 import { Link } from "react-router-dom";
 import { orderCards, filterCards } from "../../redux/action";
-const Favorites = () => {
-  const { myFavorites } = useSelector((state) => state);
-  const dispatch = useDispatch();
-  const handleOrder = (event) => {
-    dispatch(orderCards(event.target.value));
-  };
-  const handleFilter = (event) => {
-    dispatch(filterCards(event.target.value));
-  };
+import Card from "../Card/Card";
+import { connect } from "react-redux";
+
+const Favorites = ({ myFavorites }) => {
+  // const { myFavorites } = useSelector((state) => state);
+  // const dispatch = useDispatch();
+  // const handleOrder = (event) => {
+  //   dispatch(orderCards(event.target.value));
+  // };
+  // const handleFilter = (event) => {
+  //   dispatch(filterCards(event.target.value));
+  // };
   return (
     <div>
+      <br />
+      <br />
+      <br />
+      <br />
       <div>
-        <select onChange={handleOrder}>
+        {/* <select onChange={handleOrder}>
           <option value="order" disabled="disabled">
             Order By
           </option>
@@ -29,37 +36,31 @@ const Favorites = () => {
           <option value="Female">Female</option>
           <option value="Unknow">Unknow</option>
           <option value="Genderless">Genderless</option>
-        </select>
+        </select> */}
       </div>
-      {myFavorites.map((characters) => {
+      <h1>Lista de favoritos</h1>
+      {myFavorites?.map((fav) => {
         return (
-          <div key={characters.id} className={styles.divCard}>
-            <img src={characters.image} alt={characters.name} />
-            <Link to={`/detail/${characters.id}`}>
-              <h2 className={styles.nombre}>{characters.name}</h2>
-            </Link>
-            <h2 className={styles.nombre}>species : {characters.species}</h2>
-            <h2 className={styles.nombre}>gender : {characters.gender}</h2>
-          </div>
+          <Card
+            key={fav.id}
+            id={fav.id}
+            name={fav.name}
+            species={fav.species}
+            gender={fav.gender}
+            image={fav.image}
+          />
         );
       })}
     </div>
   );
 };
 
-export default Favorites;
+//export default Favorites;
 
-// <div key={character.id}>
-//   <div>
-//     <img src={character.image} alt={character.name} />
-//   </div>
-//   <div>
-//     <Link to={`/detail/${character.id}`}>
-//       <h2 className={styles.nombre}>{character.name}</h2>
-//     </Link>
-//   </div>
-//   <div>
-//     <h2 className={styles.nombre}>species:{character.species}</h2>
-//     <h2 className={styles.nombre}>gender:{character.gender}</h2>
-//   </div>
-// </div>
+const mapStateToProps = (state) => {
+  return {
+    myFavorites: state.myFavorites,
+  };
+};
+
+export default connect(mapStateToProps, null)(Favorites);

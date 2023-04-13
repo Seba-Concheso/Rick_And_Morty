@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addFav, removeFav } from "../../redux/action";
 
-export default function Card({ id, name, species, gender, image, onClose }) {
+export default function Card({ id, name, species, gender, image, onClose,addFav, removeFav }) {
   const [isFav, setIsFav] = useState(false);
   const dispatch = useDispatch();
   const myFavorites = useSelector((state) => state.myFavorites);
@@ -24,7 +24,7 @@ export default function Card({ id, name, species, gender, image, onClose }) {
         setIsFav(true);
       }
     });
-  }, [myFavorites, id]);
+  }, [myFavorites]);
   return (
     <div className={styles.divCard}>
       {isFav ? (

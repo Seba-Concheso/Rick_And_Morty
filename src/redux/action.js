@@ -14,10 +14,10 @@ export const removeFav = (id) => {
   };
 };
 
-export const filterCards = (gender) => {
+export const filterCards = (character) => {
   return {
     type: FILTERCARDS,
-    payload: gender,
+    payload: character,
   };
 };
 
